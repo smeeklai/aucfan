@@ -1,0 +1,198 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based scoping.
+# Code completion support is available so start typing for available options.
+swagger: '2.0'
+
+# This is your document metadata
+info:
+  version: "1.0.0"
+  title: predictPrice
+  description: for revalue
+#host: aaa
+schemes: 
+  - http
+basePath: /v1
+produces:
+  - application/json
+  
+
+# Describe your paths here
+paths:
+  # This is a path endpoint. Change it.
+  /products/{jan}:
+    get:
+      description: |
+        janでマスターを引ける。
+        今後、janのリストを渡した際に、masterのリストが帰ってくるようにしたい。
+        そのため、resultsは配列にしておく 
+      parameters: 
+        - $ref: "#/parameters/jan"
+
+      responses: 
+        200: 
+          description: success
+          schema:
+            title: results
+            type: array
+            items:
+              $ref: "#/definitions/Master"
+  /pos/{jan}:
+    get:
+      description: |
+        janでposを引ける。
+        今後、janのリストを渡した際に、master同様posのリストが帰ってくるようにしたいが、
+        件数が多いので、resultsは一旦１商品のposの配列にしておく
+      parameters: 
+        - $ref: "#/parameters/jan"
+      responses: 
+        200: 
+          description: success
+          schema:
+            title: results
+            type: array
+            items:
+              $ref: "#/definitions/Pos"
+  /seasonalTrend:
+    get:
+      description: |
+        サブカテゴリでカテゴリのsalesのトレンドが引ける
+      parameters: 
+        - $ref: "#/parameters/subcategory"
+      responses: 
+        200: 
+          description: success
+          schema:
+            title: results
+            type: array
+            items:
+              $ref: "#/definitions/SeasonalTrend"
+  /preprocess:
+    post:
+      summary: preprocessing
+      description: |
+        posの配列を渡すと、日付補完された配列が返ってくる
+      parameters: 
+        - $ref: "#/parameters/pos"
+      responses: 
+        200: 
+          description: success
+          schema:
+            title: results
+            type: array
+            items:
+              $ref: "#/definitions/Pos"
+  /predict:
+    post:
+      description: |
+        posの配列から、6か月後もしくは12か月後の価格を予測する
+      parameters: 
+        - $ref: "#/parameters/period"
+        - $ref: "#/parameters/pos"
+      responses: 
+        200: 
+          description: success
+          schema:
+            title: PredictPrice
+            type: array
+            items:
+              $ref: "#/definitions/PredictedPrice"
+      
+parameters:
+  jan:
+    name: jan
+    in: path
+    description: jan code of products
+    required: true
+    type: string
+    format: string
+  subcategory:
+    name: subcategory
+    in: query
+    description: subcategory of products
+    required: true
+    type: string
+    format: string
+  period:
+    name: period
+    in: query
+    description: period to predict (6 or 12)
+    required: true
+    type: integer
+    format: integer
+  pos:
+    name: pos
+    in: body
+    description: prices data
+    required: true
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          date:
+            type: string
+          price:
+            type: integer
+definitions:
+  Master:
+    # title: master
+
+    type: object
+    properties:
+      title:
+        type: string
+      jan:
+        type: string
+      manufucturer:
+        type: string
+      mpn:
+        type: string
+      category:
+        type: string
+      subcategory:
+        type: string
+  Pos:
+    title: pos
+    type: array
+    items:
+      type: object
+      properties:
+        date:
+          type: string
+        price:
+          type: integer
+  SeasonalTrend:
+    title: seasonalTrend
+    type: object
+    properties:
+      subcategory:
+        type: string
+      data:
+        type: array
+        items:
+          type: object
+          properties:
+            date:
+              type: string
+            price:
+              type: integer
+  PredictedPrice:
+    title: predictedPrice
+    type: object
+    properties:
+      predictedPrice:
+        type: integer
+      lowerPrice:
+        type: integer
+      upperPrice:
+        type: integer
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      errorMessage:
+        type: string
+      errorInfo:
+        type: string
