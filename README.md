@@ -1,5 +1,5 @@
 # aucfan
-Showcases from what I've done from my part-time job
+Showcases of what I've done from my part-time job
 
 Lazada/ - Scrappy web crawler for Lazada
 
