@@ -1,0 +1,136 @@
+.crx_mouse_visited {
+  background-color: #bcd5eb !important;
+  outline: 1px solid #5166bb !important;
+}
+
+.important_info {
+	background-color: #fff3b1;
+	outline: 1px solid 	#FFD700;
+}
+
+.bold{
+	-webkit-font-smoothing: auto !important;
+	display: inline-block;
+}
+
+#popup-window *{
+	margin: 0px;
+	padding: 0px;
+	font: normal 14px sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+#popup-window input[type="button"], input[type="text"] {
+	color: black !important;
+	height: initial !important;
+}
+
+#popup-window input[type="button"] {
+	background-color: silver !important;
+}
+
+#popup-window {
+  color: #FFFFFF;
+	position: absolute;
+	z-index: 99992;
+	border: 1px solid #D0D0D0 ;
+	padding: 4px;
+	background: #5C73B8;
+	top: 5px;
+	left: 5px;
+	min-width: 100px;
+	border-radius: 5px;
+	word-wrap: break-word;
+}
+
+.selector{
+	background-image: none !important;
+	margin-left: 5px !important;
+	width: auto ;
+  color: #000000 ;
+  background: #FFFFFF ;
+  -webkit-appearance: menulist;
+}
+
+.otherBox {
+	margin: 5px 0px 0px 5px !important;
+	padding: 0px !important;
+	width: 100px !important;
+}
+
+.mainTabStyle {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 105px;
+    border: 10 !important;
+    background: #e3e3e3 !important;
+    z-index: 9999999 !important;
+		text-align: center !important;
+}
+
+.mainTabStyle-p {
+	font-size: 15px !important;
+}
+
+.mainTabStyle * {
+	margin: 0px;
+	padding: 0px;
+	float: none;
+	border: 0;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Lucida Grande", Verdana, "ＭＳ Ｐゴシック", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 100%;
+}
+
+#agpMainTab h2 {
+	font-size: x-large;
+	font-weight: bold;
+	background-color: #e3e3e3;
+}
+
+body.toolbar {
+    padding-top: 105px;
+    transition: all 0.4s ease;
+}
+
+.mainTabDoneButton {
+	-moz-box-shadow: 0px 1px 0px 0px #fff6af;
+	-webkit-box-shadow: 0px 1px 0px 0px #fff6af;
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+	background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+	background-color:#ffec64;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
+  margin-top: 5px;
+}
+.mainTabDoneButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+	background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
+	background-color:#ffab23;
+}
+.mainTabDoneButton:active {
+	position:relative;
+	top:1px;
+}

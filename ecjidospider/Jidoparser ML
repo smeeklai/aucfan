@@ -1,0 +1,10 @@
+Machine learning model (Choose the main content)
+1000 samples from several EC websites, 80% train, 20% test
+subject : each div
+Features: Parent, sibling, child, Keyword_contains, amt_of_link, amt_of_img, amt_of_text, class or ID name
+
+Main content keywords
+メーカー
+発売日
+ブランド
+詳細
